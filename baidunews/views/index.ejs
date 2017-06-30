@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>百度新闻前端首页</title>
+    <!-- <link rel='stylesheet' href='/stylesheets/style.css' /> -->
+    <!-- <link rel='stylesheet' href='/stylesheets/style1.css' /> -->
+    <link rel='stylesheet' href='/stylesheets/style2.css' />
+    <link rel='stylesheet' href='/bootstrap/dist/css/bootstrap.min.css' />
+    <!-- <script src='/javascripts/jquery.3.2.0.min.js'></script> -->
+</head>
+
+<body>
+    <div class="logoshow">
+        <a href="javascript:;" class="float-left baidu-icon"></a>
+        <a href="javascript:;" class="float-left profile-icon" id="login"></a>
+        <a href="javascript:;" class="float-right subscribe-icon"></a>
+        <a href="javascript:;" class="float-right search-icon"></a>
+    </div>
+    <div class="target">
+        <div class="scrollMenu" id="scrollMenuContainer">
+            <p class="lgrad nodis" id="lgrad"></p>
+            <ul class="menus">
+                <li id="nav-0" class="selected"><a href="/getNews/0">推荐</a></li>
+                <li id="nav-1"><a href="/getNews/1">百家</a></li>
+                <li id="nav-2"><a href="/getNews/2">本地</a></li>
+                <li id="nav-3"><a href="/getNews/3">图片</a></li>
+                <li id="nav-4"><a href="/getNews/4">娱乐</a></li>
+                <li id="nav-5"><a href="/getNews/5">社会</a></li>
+                <li id="nav-6"><a href="/getNews/6">军事</a></li>
+                <li id="nav-7"><a href="/getNews/7">女人</a></li>
+                <li id="nav-8"><a href="/getNews/8">搞笑</a></li>
+            </ul>
+            <p class="rgrad"></p>
+            <p class="more"><a href="#"><i class="i" id="more"></i></a></p>
+        </div>
+        <div class="allmenu novis">
+            <div class="menusArea">
+                <div class="title">切换栏目 <a href="#" class="less"><i class="i" id="back"></i></a></div>
+                <div class="menubg">
+                    <div>
+                        <ul class="menus" id="allMenus">
+                            <li id="nav-0" class="selected"><a href="/getNews/0">推荐</a></li>
+                            <li id="nav-1"><a href="/getNews/1">百家</a></li>
+                            <li id="nav-2"><a href="/getNews/2">本地</a></li>
+                            <li id="nav-3"><a href="/getNews/3">娱乐</a></li>
+                            <li id="nav-4"><a href="/getNews/4">社会</a></li>
+                            <li id="nav-5"><a href="/getNews/5">军事</a></li>
+                            <li><a href="/getNews/6">女人</a></li>
+                            <li><a href="/getNews/7">搞笑</a></li>
+                            <li><a href="/getNews/10">生活</a></li>
+                            <li><a href="/getNews/11">国际</a></li>
+                            <li><a href="/getNews/12">国内</a></li>
+                            <li><a href="/getNews/13">体育</a></li>
+                            <li><a href="/getNews/14">汽车</a></li>
+                            <li><a href="/getNews/15">财经</a></li>
+                            <li><a href="/getNews/16">房产</a></li>
+                            <li><a href="/getNews/17">时尚</a></li>
+                            <li><a href="/getNews/18">教育</a></li>
+                            <li><a href="/getNews/19">游戏</a></li>
+                            <li><a href="/getNews/20">旅游</a></li>
+                            <li><a href="/getNews/21">人文</a></li>
+                            <li><a href="/getNews/22">创意</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <ul class="btmMenu">
+                    <li><a href="#">删除及排序</a></li>
+                </ul>
+            </div>
+            <div class="mark"></div>
+        </div>
+    </div>
+    <!-- banner -->
+    <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+        </ol>
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner" role="listbox">
+            <div class="item active">
+                <img src="/images/banner1.jpg" alt="..." style='width:100%'>
+                <div class="carousel-caption">
+                    <div class="div1">北京“丝路云”迎接一带一路</div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/images/banner2.jpg" alt="..." style="width: 100%">
+                <div class="carousel-caption">
+                    <div class="div1">爱好者悬索玻璃桥上秀瑜伽</div>
+                </div>
+            </div>
+            <div class="item">
+                <img src="/images/banner3.jpg" alt="..." style='width:100%'>
+                <div class="carousel-caption">
+                    <div class="div1">环尾狐猴：“把头探进瞅瞅”</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="hotwords">
+        <span>热点</span>
+        <ul id="hot_ul">
+            <li><a href="javascript:;">最大规模环保督察问责1278人</a></li>
+            <li><a href="javascript:;">MP3格式正式终结</a></li>
+            <li><a href="javascript:;">北京中介138家关闭520家被查</a></li>
+        </ul>
+    </div>
+    <!-- 新闻展示区 -->
+    <div class="content">
+        <ul class="cotent2">
+        </ul>
+    </div>
+    <script src='./jquery/dist/jquery.js'></script>
+    <script src='./bootstrap/dist/js/bootstrap.min.js'></script>
+    <script>
+    $(function() {
+        // 热点
+        var iNow = 0;
+
+
+        function next() {
+
+            if (iNow == $('#hot_ul li').length) {
+                iNow = 0;
+            }
+            $('#hot_ul').animate({
+                top: -iNow * 25
+            })
+            iNow++;
+        }
+        var timer = setInterval(next, 2000);
+        //点击选中显示下划线
+        $('#scrollMenuContainer li').click(function() {
+                $('#scrollMenuContainer li').removeClass('selected');
+                $(this).addClass('selected');
+            })
+            // 展开更多
+        $('.more').click(function() {
+                $('.allmenu').show();
+
+            })
+            // 隐藏更多
+        $('.less').click(function() {
+                $('.allmenu').hide();
+
+            })
+            // 下划线样式
+        $('#allMenus li').click(function() {
+            var index = $(this).index();
+            // $("#allMenus li:eq(" + index + ")").addClass("selected").siblings().removeClass("selected")
+            $("#allMenus li:eq(" + index + ")").addClass("selected").siblings().removeClass("selected");
+        });
+
+        // $.ajax({
+        //         url: '/index/newsed',
+        //         type: 'get',
+        //         success: function(data) {
+        //             //索引 值
+        //             $.each(data, function(index, ele) {
+        //                         getMsg(ele); //动态拼接 显示所有的推荐新闻
+
+        //                     }
+
+        //                 },
+        //                 error: function(err) {
+        //                     console.log(err);
+        //                 }
+
+
+
+        //         })
+
+        $.ajax({
+            url: '/index/newsed',
+            type: 'get',
+            success: function(data) {
+                $.each(data, function(index, ele) { //索引  值
+                    getMsg(ele); //动态拼接显示
+                })
+
+            },
+            error: function(err) {
+                console.log(err);
+            }
+
+        })
+
+        // 通过点击栏目 切换新闻内容
+        $('.menus li').click(function() {
+            var index = $(this).index();
+            $('.cotent2').empty();
+            $("#allMenus li:eq(" + index + ")").addClass("selected").siblings().removeClass("selected");
+            var path = $(this).find('a').attr('href');
+
+            $.ajax({
+                url: '/index' + path,
+                type: 'get',
+                success: function(data) {
+                    $.each(data, function(index, ele) {
+                        getMsg(ele);
+                    })
+
+                },
+                error: function() {
+                    console.log(err);
+                }
+
+            })
+            return false;
+        })
+
+    });
+
+    // 动态拼接显示新闻
+    function getMsg(ele) {
+        var title = ele.newsTitle;
+        var date = ele.newsDate;
+        var content = ele.newsContext;
+        var img = ele.newsUrl;
+        var label = ele.newsLabel;
+        var src = ele.newsSrc;
+
+
+        var a = $("<a href='sigle/" + ele.newsId + "' style='display: block;'></a>");
+        var li = $("<li></li>");
+        var div = $("<div class='newCon'></div>"); //左div
+        var div1 = $("<div class='newPIC'><a href='#'><img src='/images/" + img + "' alt='图片'></a></div>");
+        var div4 = $("<div class='newsMSG'></div>"); //右div
+        var div2 = $("<div class='newTitle'><span><a href='#'>" + title + "</a></span></div>");
+        var div3 = $("<div class='newsTime'><span>" + date + "</span><span>" + src + "</span></div>");
+        div1.appendTo(div);
+        div4.appendTo(div);
+        div2.appendTo(div4);
+        div3.appendTo(div4);
+        div.appendTo(li);
+        li.appendTo(a);
+        a.appendTo($(".cotent2"));
+    }
+
+    // ;(function (win,doc){
+    //    		  function changeSize(){
+    //       	  doc.documentElement.style.fontSize=50*doc.documentElement.clientWidth/320+'px';
+    //     }
+    //     changeSize();
+    //     win.addEventListener('resize',changeSize);//给window加监听事件 当窗口'resize'时 执行changeSize函数
+    // })(window,document);//实参 对应形参window对应win document对应doc
+
+    // $('.box #ul li').click(function (){
+    // 		// alert($(this).text().toLocaleString());
+    // 		$.ajax({
+    // 			url:'/index/getallnews',
+    // 			type:'get',
+    // 			data:{
+    // 				label:$(this).text()
+    // 			},
+
+
+    // 			success:function(data){
+    // 				console.log(data);
+
+    // 				// $('.box #div1 li').removeClass('show');
+    // 				// $('.box #div1 li').eq($(this).index()).addClass('show');
+
+    // 				// $('.box .show').val(data[0].newsContext);
+
+    // 				// console.log($('.box .show').val(data[0].newsContext));
+    // 			}
+
+    // 		})
+
+    // });
+
+
+
+
+    // $(".menus li").click(function(){
+    // 	       var index = $(this).index();
+    // 	       console.log(index)
+    // 	        $(".menus li:eq(" + index + ")").addClass("selected").siblings().removeClass("selected");
+    //          var path = $(this).find("a").attr("href");
+    //          console.log(path);
+    //          $.ajax({
+    //              url: "/index"+path,
+    //              type: "get",
+    //              success: function (data) {
+    //                  console.log(data);
+    //                  $.each(data, function (index, ele) {
+    //                      getMsg(ele);
+    //                  })
+    //              }, error: function (err) {
+    //                  console.log(err);
+    //              }
+    //          })
+    //          //防止跳转页面
+    //          return false;
+
+    // });
+    </script>
+</body>
+
+</html>
