@@ -1,0 +1,112 @@
+body {
+    font: 10px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+html {
+    font-size: 100px;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+li {
+    list-style: none;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.fl {
+    float: left;
+}
+
+.fr {
+    float: right;
+}
+
+
+/* 前端 */
+
+.front {
+    width: 6.4rem;
+    margin: 0 auto;
+}
+
+.front .logo {
+    text-align: center;
+    background: #398eec;
+}
+
+.front .logo .img {
+    width: 1.5rem;
+    height: 0.51rem
+}
+
+.front .box ul {
+    width: 6.4rem;
+    overflow: hidden;
+    background: #398eec;
+}
+
+.front .box ul li {
+    float: left;
+    width: 1.28rem;
+    height: 0.3rem;
+    text-align: center;
+    line-height: 0.3rem;
+}
+
+.front .box ul li a {
+    font-size: 0.18rem;
+}
+
+.box div {
+    width: 6.4rem;
+    height: 1rem;
+    backgro: ;
+    background: red;
+    border: 1px solid #ccc;
+    display: none;
+    font-size: 0.18rem;
+}
+
+.box .show {
+    display: block;
+}
+
+.front #div1 ul {
+    overflow: hidden;
+    width: 6.4rem;
+}
+
+.front #div1 ul li {
+    float: left;
+    width: 6rem;
+    margin-left: 0.2rem;
+    height: 1rem;
+    background: #fff;
+    border-bottom: 0.01rem solid #ccc;
+}
+
+.front #div1 ul li .pic {
+    width: 1.5rem;
+    height: 1rem;
+}
+
+.front #div1 ul li p {
+    font-size: 0.2rem;
+    display: inline-block;
+    padding-bottom: 0.4 rem;
+}
+
+.front #div1 ul .right {
+    text-align: center;
+}
