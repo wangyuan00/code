@@ -1,0 +1,286 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-size: 12px;
+    color: black;
+    font-family: 微软雅黑;
+}
+
+li {
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover{
+    color: red;
+}
+
+.page {
+    width: 1200px;
+    height: 800px;
+    /*background-color: gainsboro;*/
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+.header {
+    width: 1200px;
+    height: 67px;
+    /*background-color: #c23131;*/
+
+}
+
+.container {
+    width: 1200px;
+    height: 422px;
+    /*background-color: greenyellow;*/
+}
+
+.footer {
+    width: 1200px;
+    height: 85px;
+    /*background-color: red;*/
+}
+
+/*第一行头*/
+.header-top {
+    width: 1200px;
+    height: 20px;
+    /*background-color: yellow;*/
+    margin-top: 10px;
+    box-sizing: border-box;
+    line-height: 20px;
+    text-align: center;
+}
+
+.header-top ul {
+    margin-left: 20px;
+}
+
+.header-top ul li {
+    float: left;
+}
+
+.header-top ul li a {
+    color: black;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+.header-top ul li a span {
+    color: grey;
+    margin-left: 100px;
+}
+
+/*第二行头*/
+.header-bottom {
+    width: 1200px;
+    height: 37px;
+    line-height: 50%;
+    /*background-color: red;*/
+    margin-top: 10px;
+}
+
+.header-bottom img {
+    float: left;
+    margin-left: 30px;
+}
+
+.header-bottom div {
+    float: right;
+    height: 37px;
+    line-height: 37px;
+    margin-right: 10px;
+}
+
+.header-bottom div ul li {
+    float: left;
+}
+
+.header-bottom div ul li a {
+    color: black;
+    text-decoration: none;
+    margin-left: 20px;
+}
+
+/*中间内容*/
+.container-left {
+    width: 290px;
+    height: 302px;
+    /*background-color: #666666;*/
+    float: left;
+}
+
+.container-center {
+    width: 428px;
+    height: 302px;
+    /*background-color: #c23131;*/
+    float: left;
+}
+
+.container-center .title {
+    opacity: .5;
+    width: 413px;
+    margin-top: -25px;
+    text-align: center;
+    height: 23px;
+    background-image: url(../img/icon_01.png);
+
+}
+
+.container-center .title a {
+    color: red;
+}
+
+.container-right {
+    width: 482px;
+    height: 302px;
+    /*background-color: #cccccc;*/
+    float: left;
+}
+
+/*左边图片部分*/
+.container-left-img {
+    width: 135px;
+    height: 100px;
+    background-color: yellow;
+    float: left;
+    margin-left: 5px;
+
+}
+
+.container-left-img:hover {
+    background: red;
+}
+
+/*鼠标移入变色*/
+
+.container-left-img .title {
+    opacity: .5;
+    margin-top: -23px;
+    text-align: center;
+    height: 23px;
+    background-image: url(../img/icon_01.png);
+    /*background: url(../img/icon_01.png) ;*/
+}
+
+.container-left-img .title a {
+    text-decoration: none;
+    color: red;
+}
+
+/*访谈栏目*/
+.fangtan ul li {
+    float: left;
+}
+
+.fangtan ul li img {
+    float: left;
+}
+
+.fangtan ul li span {
+    float: left;
+    height: 25px;
+    line-height: 25px;
+    color: gainsboro;
+    font-size: 16px;
+}
+
+.fangtan ul li a {
+    /*margin-left: 50px;*/
+    color: black;
+    margin-left: 10px;
+}
+
+.fangtan-vedio {
+    clear: both;
+    width: 670px;
+}
+
+.fangtan-vedio .fangtan-vedio-one {
+    float: left;
+    margin-left: 0px;
+    margin-right: 20px;
+}
+
+.fangtan-vedio-one .title {
+    opacity: .5;
+    margin-top: -33px;
+    text-align: center;
+    height: 30px;
+    background-image: url(../img/icon_01.png);
+    color: red;
+}
+
+.fangtan-vedio-one .title span {
+    margin-left: 30px;
+}
+
+.fangtan-vedio-one .fangtan-vedio-one-hanzi {
+    margin-top: 45px;
+    display: block;
+}
+
+.fangtan-vedio-one .time {
+    color: gainsboro;
+}
+
+/*排行榜*/
+.paihangbang {
+    width: 530px;
+    margin-left: 695px;
+    margin-top: -23px;
+}
+
+.paihangbang ul li {
+    margin-top: 12px;
+
+}
+
+.paihangbang ul .hanzi {
+    margin-left: 30px;
+}
+
+.paihangbang ul li a {
+    color: black;
+}
+
+/*结尾*/
+.footer .footer-xian img {
+    width: 1200px;
+    height: 23px;
+}
+
+.footer-btn {
+    width: 1200px;
+    margin-left: 143px;
+    float: left;
+}
+
+.footer-btn ul li {
+    float: left;
+
+}
+
+.footer-btn ul li a {
+    color: black;
+}
+
+/*第二个脚步*/
+.footer-btn2 {
+    width: 1200px;
+    float: left;
+    margin-left: 353px;
+}
+
+/*第三个底部*/
+.footer-btn3 {
+    margin-left: 300px;
+}
