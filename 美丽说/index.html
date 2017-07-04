@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>美丽说  </title>
+    <link rel="shortcut icon" href="images/icon1.png" type="image/x-icon"/>
+    <link rel="stylesheet" href="css/index.css">
+    <script>
+        window.onload=function(){
+
+            function list(a,b){
+                a.onmouseover=function(){
+                    b.style.display="block";
+                }
+                a.onmouseout=function(){
+                    b.style.display="none";
+                }
+            }
+
+            var oDownload=document.getElementsByClassName("download")[0];
+            var oApp=document.getElementsByClassName("tel-app")[0];
+            list(oDownload,oApp);
+
+            var oHelpcenter=document.getElementsByClassName("help-center")[0];
+            var oHelp=document.getElementsByClassName("help")[0];
+            list(oHelpcenter,oHelp);
+
+            var aSideList=document.getElementsByClassName("side-list");
+            var aRightList=document.getElementsByClassName("right-list");
+            for(var i=0;i<aSideList.length;i++){
+                aSideList[i].index=i;
+                aSideList[i].onmouseover=function(){
+                    this.style.border="1px solid red";
+                    aRightList[this.index].style.display="block";
+                }
+                aSideList[i].onmouseout=function(){
+                    aRightList[this.index].style.display="none";
+                    this.style.border="1px solid white";
+                }
+            }
+
+            var oBannerimg=document.getElementById("banner-img");
+            var aAlink=oBannerimg.getElementsByTagName("a");
+            var oPrev=oBannerimg.getElementsByClassName("arrow-left")[0];
+            var oNext=oBannerimg.getElementsByClassName("arrow-right")[0];
+            var aBtn=oBannerimg.getElementsByTagName("span");
+            var iNow=0;
+
+            function tab(n){
+                for(var i=0;i<aBtn.length;i++){
+                    aBtn[i].className="";
+                    aAlink[i].className="";
+                }
+                aBtn[n].className="on";
+                aAlink[n].className="wpc-show";
+            }
+            for(var i=0;i<aBtn.length;i++) {
+                aBtn[i].index=i;
+                aBtn[i].onmouseover=function(){
+                    iNow=this.index;
+                    tab(iNow);
+                }
+            }
+            oPrev.onclick=function (){
+                iNow--;
+                if(iNow==-1){
+                    iNow=aBtn.length-1;
+                }
+                tab(iNow);
+            }
+            oNext.onclick=function(){
+                iNow++;
+                if(iNow==aBtn.length){
+                    iNow=0;
+                }
+                tab(iNow);
+            }
+            var timer=setInterval(function(){
+                iNow++;
+                if(iNow==aBtn.length){
+                    iNow=0;
+                }
+                tab(iNow);
+            },1000)
+            oBannerimg.onmouseover=function(){
+                clearInterval(timer);
+            }
+            oBannerimg.onmouseout=function(){
+                clearInterval(timer);
+                timer=setInterval(function(){
+                    iNow++;
+                    if(iNow==aBtn.length){
+                        iNow=0;
+                    }
+                    tab(iNow);
+                },1000)
+            }
+
+            var oTime=document.getElementsByClassName("time")[0];
+            var oP=oTime.getElementsByTagName("span")[0];
+            var target=90650;
+            function clock(){
+                target--;
+                var d=parseInt(target/86400);
+                var x=target%86400;
+                var h=parseInt(x/3600);
+                x%=3600;
+                var m=parseInt(x/60);
+                x%=60;
+                oP.innerHTML="距离结束还有："+d+"天"+h+"时"+m+"分"+x+"秒";
+            }
+            clock();
+            var time1=setInterval(clock,1000)
+        }
+    </script>
+</head>
+<body>
+    <div class="main">
+        <div class="head">
+            <div class="hd-regist">
+                <ul>
+                    <li><a href="#" class="wx-logo">微信登录</a></li>
+                    <li><a href="#" class="qq-logo">QQ登录</a></li>
+                    <li><a href="#">登录</a></li>
+                    <li><a href="#">注册</a></li>
+                    <li><a href="#" class="shopping-logo">我的购物车<i class="shopping-num"></i></a></li>
+                    <li><a href="#" class="indent-logo">我的订单</a></li>
+                    <li><a href="#" class="member-logo">美丽说会员</a></li>
+                    <li class="download"><a href="#" class="tel-logo">下载APP<i class="arrow-down"></i></a></li>
+                    <li class="help-center">
+                        <a href="#" class="helpcenter">帮助中心</a>
+                        <ul class="help">
+                            <li><a href="javascript:;">买家服务</a></li>
+                            <li><a href="javascript:;">商家服务</a></li>
+                            <li><a href="javascript:;">规则中心</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <div class="hd-logosearch clearFix">
+                <div class="hd-logo"><img src="images/meilishuo-logo.jpg" alt="logo"/></div>
+                <div class="hd-search">
+                    <div>
+                        <input  class="hd-search-cowry" type="button" name="cowry" value="宝贝"/><input  class="hd-search-shop" type="button" name="shop" value="店铺"/>
+                    </div>
+                    <div>
+                        <div class="hd-search-ts0">
+                            <input class="hd-search-text" type="text" name="search" value="&nbsp;&nbsp;搜流行宝贝"/><img src="images/searchbotton.jpg" alt="searbutton"/>
+                        </div>
+                    </div>
+                </div>
+                <div class="hd-higo">
+                    <img src="images/higo.jpg" alt="higo"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="wpc-part clearFix">
+        <ul class="wpc-nav clearFix">
+            <li class="nav-list fl"><a href="#">首页</a></li>
+            <li class="fl"><a href="#">最热</a></li>
+            <li class="fl"><a href="#">上衣</a></li>
+            <li class="fl"><a href="#">裙子</a></li>
+            <li class="fl"><a href="#">裤子</a></li>
+            <li class="fl"><a href="#">鞋子</a></li>
+            <li class="fl"><a href="#">包包</a></li>
+            <li class="fl"><a href="#">配饰</a></li>
+            <li class="fl"><a href="#">内衣</a></li>
+            <li class="fl"><a href="#">美妆</a></li>
+            <li class="fl"><a href="#">男装</a></li>
+            <li class="fl"><a href="#">童装</a></li>
+            <li class="fl"><a href="#">家居</a></li>
+            <li class="fl"><a href="#">小家电</a></li>
+            <li class="fl"><a href="#">食品</a></li>
+        </ul>
+        <div class="wpc-wrapper clearFix">
+            <div class="sidebar fl">
+                <div>
+                    <h3>每日精选</h3>
+                    <ul class="sidebar-ul">
+                        <li class="side-list">
+                            <a href="#" class="red">秋冬新品</a>
+                            <a href="#" class="black">美丽性感</a>
+                            <a href="#" class="red">毛呢外套</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+
+                            </div>
+                        </li>
+                        <li class="side-list">
+                            <a href="#" class="red">时尚套装</a>
+                            <a href="#" class="black">牛仔裤</a>
+                            <a href="#" class="red">短靴</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                        <li class="side-list">
+                            <a href="#" class="black">运动鞋</a>
+                            <a href="#" class="black">热销零食</a>
+                            <a href="#" class="red">韩货优选</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>2015流行</h3>
+                    <ul class="sidebar-ul">
+                        <li class="side-list">
+                            <a href="#" class="black">街头混搭</a>
+                            <a href="#" class="red">极简风</a>
+                            <a href="#" class="black">宽松直筒群</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                        <li class="side-list">
+                            <a href="#" class="red">中长款外套</a>
+                            <a href="#" class="red">皮革</a>
+                            <a href="#" class="red">鹿皮</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                        <li class="side-list">
+                            <a href="#" class="red">动物纹</a>
+                            <a href="#" class="black">蝴蝶结</a>
+                            <a href="#" class="red">流苏</a>
+                            <a href="#" class="black">冰浅色</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>时尚经典</h3>
+                    <ul class="sidebar-ul">
+                        <li class="side-list">
+                            <a href="#" class="red">韩系</a>
+                            <a href="#" class="red">小香风</a>
+                            <a href="#" class="black">学院风</a>
+                            <a href="#" class="black">条纹</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                        <li class="side-list">
+                            <a href="#" class="black">千鸟格</a>
+                            <a href="#" class="red">毛呢</a>
+                            <a href="#" class="red">针织</a>
+                            <a href="#" class="red">黑色</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                        <li class="side-list">
+                            <a href="#" class="red">灰色</a>
+                            <a href="#" class="red">中国红</a>
+                            <a href="#" class="black">樱花粉</a>
+                                <div class="right-list">
+                                    <a href="#" class="red">秋冬新品</a>
+                                    <a href="#" class="black">美丽性感</a><br />
+                                    <a href="#" class="red">毛呢外套</a>
+                                    <a href="#" class="red">时尚套装</a><br />
+                                    <a href="#" class="black">牛仔裤</a>
+                                    <a href="#" class="red">短靴</a><br />
+                                    <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>穿百搭</h3>
+                    <ul class="sidebar-ul">
+                        <li class="side-list">
+                            <a href="#" class="red">呢大衣</a>
+                            <a href="#" class="black">收腰棉衣</a>
+                            <a href="#" class="red">廓形毛衣</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                        <li class="side-list">
+                            <a href="#" class="black">针织开衫</a>
+                            <a href="#" class="red">双排扣外套</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                        <li class="side-list">
+                            <a href="#" class="black">针织背心裙</a>
+                            <a href="#" class="black">纯色打底裤</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div>
+                    <h3>百变廓形</h3>
+                    <ul class="sidebar-ul">
+                        <li class="side-list">
+                            <a href="#" class="red">收腰</a>
+                            <a href="#" class="black">宽松</a>
+                            <a href="#" class="red">紧身</a>
+                            <a href="#" class="black">直筒</a>
+                            <a href="#" class="red">A字</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                        <li class="side-list">
+                            <a href="#" class="black">H型</a>
+                            <a href="#" class="black">X型</a>
+                            <a href="#" class="red">S型</a>
+                            <a href="#" class="red">T型</a>
+                            <a href="#" class="red">I型</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                        <li class="side-list">
+                            <a href="#" class="red">O型</a>
+                            <a href="#" class="black">短款</a>
+                            <a href="#" class="black">长款</a>
+                            <a href="#" class="red">茧型</a>
+                            <a href="#" class="black">阔口</a>
+                            <div class="right-list">
+                                <a href="#" class="red">秋冬新品</a>
+                                <a href="#" class="black">美丽性感</a><br />
+                                <a href="#" class="red">毛呢外套</a>
+                                <a href="#" class="red">时尚套装</a><br />
+                                <a href="#" class="black">牛仔裤</a>
+                                <a href="#" class="red">短靴</a><br />
+                                <a href="#" class="black">蝴蝶结</a><br />
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="banner fl">
+                <div id="banner-img">
+                    <a href="#" class="wpc-show"><img src="images/banner.jpg" width="960px" height="420px" alt="" /></a>
+                    <a href="#"><img src="images/picture1.jpg" width="960px" height="420px" alt="" /></a>
+                    <a href="#"><img src="images/picture2.jpg" width="960px" height="420px" alt="" /></a>
+
+                    <i class="arrow-left"><</i>
+                    <i class="arrow-right">></i>
+
+                    <div class="turn">
+                        <span class="on"></span>
+                        <span></span>
+                        <span></span>
+                        <!--<span></span>-->
+                    </div>
+                </div>
+                <ul class="banner-list clearFix">
+                    <li class="fl"><a href="#"><img src="images/wpc-picture 1.jpg" width="182px" height="146px" alt=""></a></li>
+                    <li class="fl"><a href="#"><img src="images/wpc-picture 2.jpg" width="182px" height="146px" alt=""></a></li>
+                    <li class="fl"><a href="#"><img src="images/wpc-picture 3.jpg" width="182px" height="146px" alt=""></a></li>
+                    <li class="fl"><a href="#"><img src="images/wpc-picture 4.jpg" width="182px" height="146px" alt=""></a></li>
+                    <li class="fl"><a href="#"><img src="images/wpc-picture 5.jpg" width="182px" height="146px" alt=""></a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="time">
+        <span>距离结束还有：00天00时00分00秒</span>
+    </div>
+    <div class="content">
+        <div class="c_h">
+            <div class="h_l">
+                <h3>疯狂星期五</h3>
+            </div>
+            <div class="h_r">
+                <span>正确流行 新款大促</span>
+            </div>
+            <span class="spx1"></span><a href="#">往期回顾</a>
+        </div>
+        <hr size="2px" color="#f1f1f1" width="980px" class="fr"/>
+        <ul class="list1">
+            <li>
+                <div class="one">
+                    <a href="#"><img src="images/sec1.jpg"></a>
+                </div>
+            </li>
+            <li>
+                <div class="two">
+                    <a href="#"><img src="images/sec2.jpg"></a>
+                    <a href="#"><img src="images/sec3.jpg"></a>
+                    <a href="#"><img src="images/sec4.jpg"></a>
+                </div>
+            </li>
+            <li>
+                <div class="three">
+                    <a href="#"><img src="images/sec5.jpg"></a>
+                </div>
+            </li>
+            <li>
+                <div class="four">
+                    <a href="#"><img src="images/sec5_01.jpg"></a>
+                    <a href="#"><img src="images/sec5_02.jpg"></a>
+                    <a href="#"><img src="images/sec5_03.jpg"></a>
+                </div>
+            </li>
+            <li>
+                <div class="five">
+                    <a href="#"><img src="images/sec7.jpg"></a>
+                </div>
+            </li>
+            <li>
+                <div class="six">
+                    <a href="#"><img src="images/sec9.jpg"></a>
+                    <a href="#"><img src="images/sec10.jpg"></a>
+                    <a href="#"><img src="images/sec11.jpg"></a>
+                </div>
+            </li>
+        </ul>
+        <div class="c_h">
+            <div class="h_l">
+                <h3>疯狂星期五</h3>
+            </div>
+            <div class="h_r">
+                <span>疯狂新款</span>
+            </div>
+        </div>
+        <hr size="2px" color="#f1f1f1" width="1000px" class="fr"/>
+        <ul class="list2">
+            <li>
+                <div class="one">
+                    <a href="#"><img src="images/sec12.jpg"></a>
+                    <p>外套</p>
+                </div>
+
+            </li>
+            <li>
+                <div class="two">
+                    <a href="#"><img src="images/sec13.jpg"></a>
+                    <p>套装</p>
+                </div>
+            </li>
+            <li>
+                <div class="three">
+                    <a href="#"><img src="images/sec15.jpg"></a>
+                    <p>针织裙</p>
+                </div>
+            </li>
+            <li>
+                <div class="four">
+                    <a href="#"><img src="images/sec17.jpg"></a>
+                    <p>连衣裙</p>
+                </div>
+            </li>
+            <li>
+                <div class="five">
+                    <a href="#"><img src="images/sec19.jpg"></a>
+                    <p>靴子</p>
+                </div>
+            </li>
+            <li>
+                <div class="six">
+                    <a href="#"> <img src="images/sec21.jpg"></a>
+                    <p>雪地靴</p>
+                </div>
+            </li>
+        </ul>
+        <div class="c_h">
+            <div class="h_l">
+                <h3>新品精选</h3>
+            </div>
+            <div class="h_r">
+                <span>尖货来袭 要你好看</span>
+            </div>
+            <span class="spx1"></span><a href="#">更多新品</a>
+        </div>
+        <hr size="2px" color="#f1f1f1" width="1000px" class="fr"/>
+        <ul class="list3">
+            <li>
+                <div class="one">
+                    <a href="#"><img src="images/sec14.jpg"></a>
+                    <a href="#"><p class="p1">￥110.00<img src="images/sc.jpg" class="m1"></p></a>
+                    <a href="#"><p class="p2">秋冬蝙蝠袖波浪边短款外套</p></a>
+                </div>
+            </li>
+            <li>
+                <div class="two">
+                    <a href="#"><img src="images/sec16.jpg"></a>
+                    <a href=#"><p class="p1">￥69.96<img src="images/sc.jpg" class="m2"></p></a>
+                    <a href=#"><p class="p2">格子长款包臀毛呢半身裙</p></a>
+                </div>
+            </li>
+            <li>
+                <div class="three">
+                    <a href="#"><img src="images/sec18.jpg"></a>
+                    <a href="#"><p class="p1">￥75.00<img src="images/sc.jpg" class="m2"></p></a>
+                    <a href="#"><p class="p2">秋冬蝙蝠袖波浪边短款外套</p></a>
+                </div>
+            </li>
+            <li>
+                <div class="four">
+                    <a href="#"><img src="images/sec20.jpg"></a>
+                    <a href="#"><p class="p1">￥133.00<img src="images/sc.jpg" class="m1"></p></a>
+                    <a href="#"><p class="p2">秋冬蝙蝠袖波浪边短款外套</p></a>
+                </div>
+            </li>
+            <li>
+                <div class="five">
+                    <a href="#"><img src="images/sec22.jpg"></a>
+                    <a href="#"><p class="p1">￥512.00<img src="images/sc.jpg" class="m1"></p></a>
+                    <a href="#"><p class="p2">秋冬蝙蝠袖波浪边短款外套</p></a>
+                </div>
+            </li>
+        </ul>
+        <ul class="list4">
+            <li>
+                <div class="one">
+                    <a href="#"><img src="images/sec23.jpg"></a>
+                    <a href="#"><p class="p1">￥39.90<img src="images/sc.jpg" class="m2"></p></a>
+                    <a href="#"><p class="p2">秋冬蝙蝠袖波浪边短款外套</p></a>
+                </div>
+            </li>
+            <li>
+                <div class="two">
+                    <a href="#"><img src="images/sec24.jpg"></a>
+                    <a href="#"><p class="p1">￥59.00<img src="images/sc.jpg" class="m2"></p></a>
+                    <a href="#"><p class="p2">秋冬蝙蝠袖波浪边短款外套</p></a>
+                </div>
+            </li>
+            <li>
+                <div class="three">
+                    <a href="#"><img src="images/sec25.jpg"></a>
+                    <a href="#"><p class="p1">￥168.00<img src="images/sc.jpg" class="m1"></p></a>
+                    <a href="#"><p class="p2">秋冬蝙蝠袖波浪边短款外套</p></a>
+                </div>
+            </li>
+            <li>
+                <div class="four">
+                    <a href="#"><img src="images/sec26.jpg"></a>
+                    <a href="#"><p class="p1">￥277.00<img src="images/sc.jpg" class="m1"></p></a>
+                    <a href="#"><p class="p2">秋冬蝙蝠袖波浪边短款外套</p></a>
+                </div>
+            </li>
+            <li>
+                <div class="five">
+                    <a href="#"><img src="images/sec27.jpg"></a>
+                    <a href="#"><p class="p1">￥76.00<img src="images/sc.jpg" class="m2"></p></a>
+                    <a href="#"><p class="p2">秋冬蝙蝠袖波浪边短款外套</p></a>
+                </div>
+            </li>
+        </ul>
+    </div>
+    <div class="page">
+        <div class="beautyBox clearFix">
+            <!--开始第一块明星同款-->
+            <div class="poster_wrap clearFix">
+                <div class="title clearFix ">
+                    <h2 class="fl">Desire 明星同款</h2>
+                    <p class="fl">明星热捧最IN单品</p>
+                    <hr width="950px" size="1px" class="fr"/>
+                    <a class="fr" href="#">更多明星同款<i class="bg"></i></a>
+                </div>
+                <div class="f_box">
+                    <div class="frame1 fl">
+                        <img src="images/MG1_02.png" height="257" width="386"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">DESIRE价：</li>
+                            <li class="pr_second fl">¥ 209.10</li>
+                            <li class="pr_three fl"><del>原款价：¥1650.00</del></li>
+                        </ul>
+                        <ul class="tit">
+                            <a href="#">Samantha Thavasa 同款经典锁头包</a>
+                            <li>【日本的香奈儿】VIVI杂志多个模特秀，lena也秀！！韩国少女时代、尹恩惠还有米兰达·可儿也有代言哦～年底种"趴"都能用得上。</li>
+                        </ul>
+                    </div>
+                    <div class="frame2 fl">
+                        <img src="images/MG1_04.png" height="257" width="386"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">DESIRE价：</li>
+                            <li class="pr_second fl">¥ 87.00</li>
+                            <li class="pr_three fl"><del>原款价：¥249.00</del></li>
+                        </ul>
+                        <ul class="tit">
+                            <a href="#">ZARA同款 清新印花背带裙</a>
+                            <li>【这个冬天不单调】清新的复古印花，如雾中森林走出的青涩女孩，开启一段微醺美妙之旅</li>
+                        </ul>
+                    </div>
+                    <div class="frame3 fl">
+                        <img src="images/MG1_06.png" height="257" width="386"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">DESIRE价：</li>
+                            <li class="pr_second fl">¥ 159.00</li>
+                            <li class="pr_three fl"><del>原款价：¥910.00</del></li>
+                        </ul>
+                        <ul class="tit">
+                            <a href="#">Lily Brown同款 复古U型连衣裙</a>
+                            <li>【怀着对古着魅力的敬仰】温暖的色彩，独特的质感，复古中带着一种少女情怀，让人充满元气的连衣裙～</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--开始第二块明星同款-->
+            <div class="poster_wrap2 clearFix">
+                <div class="title clearFix ">
+                    <h2 class="fl">时尚美妆</h2>
+                    <p class="fl">优选品牌 明星爆款</p>
+                    <hr width="1000px" size="1px" class="fr"/>
+                    <a class="fr" href="#">更多美妆<i class="bg"></i></a>
+                </div>
+                <div class="f_box">
+                    <div class="frame1 fl">
+                        <img src="images/MG1_11.png" height="386" width="386"/>
+                        <ul class="price clearFix">
+                            <!--<li class="pr_first fl">DESIRE价：</li>-->
+                            <li class="pr_second fl">¥ 6.20</li>
+                            <!--<li class="pr_three fl"><del>原款价：¥1650.00</del></li>-->
+                        </ul>
+                        <ul class="tit">
+                            <a href="#">夜间酵素单包</a>
+                            <li>【跳五遍郑多燕，也不如吃一袋它】游泳、跑步、郑多燕...拼了老命的运动，只为了变瘦变美。嘘！告诉你心机美人不能说的瘦身秘密，这款加强</li>
+                            <p>
+                                <i class="bg"></i>
+                                <a href="#">减肥</a>
+                                <a href="#">排毒</a>
+                                <a href="#">新谷</a>
+                            </p>
+                        </ul>
+                    </div>
+                    <div class="frame2 fl">
+                        <img src="images/MG1_13.png" height="386" width="386"/>
+                        <ul class="price clearFix">
+                            <!--<li class="pr_first fl">DESIRE价：</li>-->
+                            <li class="pr_second fl">¥ 48.00</li>
+                            <li class="pr_three fl"><del>原款价：¥129.00</del></li>
+                        </ul>
+                        <ul class="tit">
+                            <a href="#">CANMAKE唇部美容液</a>
+                            <li>【跳五遍郑多燕，也不如吃一袋它】游泳、跑步、郑多燕...拼了老命的运动，只为了变瘦变美。嘘！告诉你心机美人不能说的瘦身秘密，这款加强</li>
+                            <p>
+                                <i class="bg"></i>
+                                <a href="#">唇膏</a>
+                                <a href="#">CANMAKE</a>
+                                <!--<a href="#">新谷</a>-->
+                            </p>
+                        </ul>
+                    </div>
+                    <div class="frame3 fl">
+                        <img src="images/MG1_14.png" height="386" width="386"/>
+                        <ul class="price clearFix">
+                            <!--<li class="pr_first fl">DESIRE价：</li>-->
+                            <li class="pr_second fl">¥ 89.00</li>
+                            <!--<li class="pr_three fl"><del>原款价：¥910.00</del></li>-->
+                        </ul>
+                        <ul class="tit">
+                            <a href="#">日本快速增长型护洗发水</a>
+                            <li>【跳五遍郑多燕，也不如吃一袋它】游泳、跑步、郑多燕...拼了老命的运动，只为了变瘦变美。嘘！告诉你心机美人不能说的瘦身秘密，这款加强</li>
+                            <p>
+                                <i class="bg"></i>
+                                <a href="#">水</a>
+                                <a href="#">无硅油</a>
+                                <a href="#">Elence</a>
+                            </p>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!--开始第三块好店推荐-->
+            <div class="poster_wrap3 clearFix">
+                <div class="title clearFix ">
+                    <h2 class="fl">好店推荐</h2>
+                    <p class="fl">店铺精选 品质保证</p>
+                    <hr width="1000px" size="1px" class="fr"/>
+                    <a class="fr" href="#">更多好店<i class="bg"></i></a>
+                </div>
+                <p class="list">
+                    <span class="on">魅力女装</span>
+                    <span>时尚包包</span>
+                    <span>潮流美鞋</span>
+                    <span>必备小物</span>
+                    <span>精品男装</span>
+                </p>
+                <div class="f_box clearFix">
+                    <div class="frame1 fl">
+                        <img src="images/MG1_18.png" height="333" width="386"/>
+                        <ul class="tit">
+                            <a href="#">宠儿自制-原创女装</a>
+                            <li>宠儿自制，自主设计生产，自有工厂，为您提供最优质的商品及服务！</li>
+                        </ul>
+                        <p>
+                            <span>销量</span>
+                            <a href="#">130796</a>
+                            <span>评分</span>
+                            <a href="#">4.9</a>
+                        </p>
+                    </div>
+                    <div class="frame2 fl">
+                        <img src="images/MG1_19.png" height="333" width="386"/>
+                        <ul class="tit">
+                            <a href="#">rachelchloe(瑞可儿)旗舰店</a>
+                            <li>rachelchloe(瑞可儿)欢迎您的惠顾，相信您与我们的邂逅不止于时</li>
+                        </ul>
+                        <p>
+                            <span>销量</span>
+                            <a href="#">5006</a>
+                            <span>评分</span>
+                            <a href="#">4.9</a>
+                        </p>
+                    </div>
+                    <div class="frame3 fl">
+                        <img src="images/MG1_20.png"/>
+                        <ul class="tit">
+                            <a href="#">西西小可</a>
+                            <li>西西小可 潮品女装 每周三上新</li>
+                        </ul>
+                        <p>
+                            <span>销量</span>
+                            <a href="#">5006</a>
+                            <span>评分</span>
+                            <a href="#">4.9</a>
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <!--开始第四块为你精选-->
+            <div class="poster_wrap4 clearFix">
+                <div class="title clearFix ">
+                    <h2 class="fl">为你精选</h2>
+                    <p class="fl">为您精挑细选的宝贝</p>
+                    <hr width="1000px" size="1px" class="fr"/>
+                    <a class="fr" href="#">换一批<i class="bg"></i></a>
+                </div>
+                <div class="f_box">
+                    <div class="frame1 fl">
+                        <img src="images/MG1_24.png" height="340" width="224"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">¥ 110.00</li>
+                            <a class="pr_second fr" href="#"><i class="bg"></i>2355</a>
+                        </ul>
+                        <a class="tit" href="#">秋冬蝙蝠袖波浪边短款外套</a>
+                    </div>
+                    <div class="frame2 fl">
+                        <img src="images/MG1_26.png" height="340" width="224"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">¥ 110.00</li>
+                            <a class="pr_second fr" href="#"><i class="bg"></i>2355</a>
+                        </ul>
+                        <a class="tit" href="#">格子长款包臀毛呢半身裙</a>
+                    </div>
+                    <div class="frame3 fl">
+                        <img src="images/MG1_28.png" height="340" width="224"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">¥ 110.00</li>
+                            <a class="pr_second fr" href="#"><i class="bg"></i>2355</a>
+                        </ul>
+                        <a class="tit" href="#">秋冬蝙蝠袖波浪边短款外套</a>
+                    </div>
+                    <div class="frame4 fl">
+                        <img src="images/MG1_30.png" height="340" width="224"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">¥ 110.00</li>
+                            <a class="pr_second fr" href="#"><i class="bg"></i>2355</a>
+                        </ul>
+                        <a class="tit" href="#">秋冬蝙蝠袖波浪边短款外套</a>
+                    </div>
+                    <div class="frame5 fl">
+                        <img src="images/MG1_32.png" height="340" width="224"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">¥ 110.00</li>
+                            <a class="pr_second fr" href="#"><i class="bg"></i>2355</a>
+                        </ul>
+                        <a class="tit" href="#">秋冬蝙蝠袖波浪边短款外套</a>
+                    </div>
+                    <div class="frame1 fl">
+                        <img src="images/MG1_42.png" height="340" width="224"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">¥ 110.00</li>
+                            <a class="pr_second fr" href="#"><i class="bg"></i>2355</a>
+                        </ul>
+                        <a class="tit" href="#">秋冬蝙蝠袖波浪边短款外套</a>
+                    </div>
+                    <div class="frame2 fl">
+                        <img src="images/MG1_43.png" height="340" width="224"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">¥ 110.00</li>
+                            <a class="pr_second fr" href="#"><i class="bg"></i>2355</a>
+                        </ul>
+                        <a class="tit" href="#">秋冬蝙蝠袖波浪边短款外套</a>
+                    </div>
+                    <div class="frame3 fl">
+                        <img src="images/MG1_44.png" height="340" width="224"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">¥ 110.00</li>
+                            <a class="pr_second fr" href="#"><i class="bg"></i>2355</a>
+                        </ul>
+                        <a class="tit" href="#">秋冬蝙蝠袖波浪边短款外套</a>
+                    </div>
+                    <div class="frame4 fl">
+                        <img src="images/MG1_45.png" height="340" width="224"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">¥ 110.00</li>
+                            <a class="pr_second fr" href="#"><i class="bg"></i>2355</a>
+                        </ul>
+                        <a class="tit" href="#">秋冬蝙蝠袖波浪边短款外套</a>
+                    </div>
+                    <div class="frame5 fl">
+                        <img src="images/MG1_46.png" height="340" width="224"/>
+                        <ul class="price clearFix">
+                            <li class="pr_first fl">¥ 110.00</li>
+                            <a class="pr_second fr" href="#"><i class="bg"></i>2355</a>
+                        </ul>
+                        <a class="tit" href="#">秋冬蝙蝠袖波浪边短款外套</a>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-bottom">
+        <div class="bottom">
+        <div class="btm-up clearFix">
+            <div class="btm-up-tel">
+                <span class="btm-up-tel-img"></span>
+            </div>
+            <div class="btm-up-tel-number">
+                <p class="btm-up-tel-number0">400-800-557</p>
+                <p>美丽说客服热线</p>
+                <p>周一至周日：08:00-24:00</p>
+            </div>
+            <div>
+                <h4>买家帮助</h4>
+                <a href="#">新手指南</a><br/>
+                <a href="#">服务保障</a><br/>
+                <a href="#">帮助中心</a>
+            </div>
+            <div>
+                <h4>商家帮助</h4>
+                <a href="#">商家入驻</a><br/>
+                <a href="#">商家推广</a><br/>
+                <a href="#">帮助中心</a>
+            </div>
+            <div>
+                <h4>关于我们</h4>
+                <a href="#">关于美丽说</a><br/>
+                <a href="#">Q联系我们</a><br/>
+                <a href="#">加入美丽说</a>
+            </div>
+            <div>
+                <h4>关注我们</h4>
+                <a href="#">新浪微博</a><br/>
+                <a href="#">QQ空间</a><br/>
+                <a href="#">腾讯微博</a>
+            </div>
+            <div>
+                <h4>美丽说微信服务号</h4>
+                <img src="images/meilishuo-2weima.jpg" alt="美丽说二维码"/>
+            </div>
+        </div>
+        <div class="btm-middle clearFix">
+            <div>
+                <ul class="clearFix">
+                    <li>友情链接：</li>
+                    <li><a href="#">腾讯女性</a></li>
+                    <li><a href="#">列表网</a></li>
+                    <li><a href="#">太平洋女性网</a></li>
+                    <li><a href="#">多宝网</a></li>
+                    <li><a href="#">七丽女性网</a></li>
+                    <li><a href="#">酷我音乐</a></li>
+                    <li><a href="#">LADYMAX时尚网</a></li>
+                    <li><a href="#">宝葫芦</a></li>
+                    <li><a href="#">中国品牌服装网</a></li>
+                    <li><a href="#">优美网</a></li>
+                    <li><a href="#">男士时尚</a></li>
+                    <li><a href="#">哈秀时尚网</a></li>
+                </ul>
+            </div>
+            <div class="btm-middle-more">
+                <a href="#">更多&gt;&gt;</a>
+            </div>
+        </div>
+        <div class="btm-down">
+            <p>
+                Copyright@2015&nbsp;Meilishuo.com&nbsp电子与信息服务经营业务许可证100256号&nbsp;经营性网站备案信息&nbsp;京ICP备110223422&nbsp京公安备1232332100
+            </p>
+            <p>客服邮箱:kf@meilishuo.com&nbsp;客服电话:400-800-577&nbsp;文明办上网文明举报电话:010-98766848&nbsp;违法不良星系举报中心我最喜爱的人名警察评选&gt;&gt;<a
+                    href="#">反诈骗信息</a></p>
+        </div>
+    </div>
+    </div>
+</body>
+</html>
